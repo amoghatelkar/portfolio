@@ -1,6 +1,6 @@
 import { PortFolioNavbar } from "../Navbar/Navbar"
 
-const Layout = ({children}) => {
+const Layout = ({children}:any) => {
     return(
         <>
             <PortFolioNavbar/>

@@ -27,8 +27,7 @@ const Home: NextPage = () => {
         // }}
         weight="bold"
       >
-       Hey, I'm Amogh. 👋🏽
-I'm a Web Developer.
+       {"Hey, I'm Amogh. 👋🏽 I'm a Web Developer."}
       </Text>
       <Text
         h2
