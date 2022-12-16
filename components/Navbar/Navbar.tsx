@@ -7,8 +7,8 @@ export const PortFolioNavbar:FC = () => {
 
     const variants = ["static", "floating", "sticky"];
     const navbarItems = [
-        { name:'Home',link:'/'},
-        { name:'Resume',link:'https://www.cakeresume.com/s--3MAijQXyxXWDS3JAnvlXBQ--/amogh-telkar'},
+        { key:'home',name:'Home',link:'/'},
+        { key:'resume',name:'Resume',link:'https://www.cakeresume.com/s--3MAijQXyxXWDS3JAnvlXBQ--/amogh-telkar'},
         // { name:'Repository',link:'/repository'},
         // { name:'Exprience',link:'/experience'},
         // { name:'Education',link:'/education'},
@@ -48,7 +48,7 @@ export const PortFolioNavbar:FC = () => {
             </div>
             <div style={{marginLeft:'auto',padding:'20px'}}>
                 {navbarItems.map(navbarItem => <>
-                    <a style={{padding:'10px'}} href={navbarItem.link}>{navbarItem.name}</a>
+                    <a key={navbarItem.key} style={{padding:'10px'}} href={navbarItem.link}>{navbarItem.name}</a>
                 </>
                 )}
             </div>

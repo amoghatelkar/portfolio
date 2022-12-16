@@ -27,7 +27,7 @@ const Home: NextPage = () => {
         // }}
         weight="bold"
       >
-       {"Hey, I'm Amogh. 👋🏽 I'm a Web Developer."}
+       {"Hey, 👋🏽 ."}
       </Text>
       <Text
         h2
@@ -37,8 +37,7 @@ const Home: NextPage = () => {
         // }}
         weight="normal"
       >
-A passionate Web developer, with a curious mind and a constant learning attitude. I spent most of my life living in Hassan Karnataka, my hometown, and now working in Bengaluru.
-With a detail oriented-focus, I enjoy creating simple but effective solutions to improve application performance, and user experience.
+    {"A passionate Web developer, with a curious mind and a constant learning attitude. I spent most of my life living in Hassan Karnataka, my hometown, and now working in Bengaluru."}
       </Text>
      
       </Container>
