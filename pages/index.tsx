@@ -9,6 +9,10 @@ const Home: NextPage = () => {
   return (
     <>
     <Container sm style={{paddingTop:'100px'}}>
+      <div style={{textAlign:'center'}}>
+      <img src="amogh.png" width={"150rem"}/>
+      </div>
+      
         <Text
         h1
         size={60}
@@ -17,28 +21,26 @@ const Home: NextPage = () => {
         }}
         weight="bold"
       >
+
         AMOGH TELKAR
       </Text>
-      <Text
-        h2
-        size={30}
+      <h2
+
         // css={{
         //   textGradient: "45deg, $purple600 -20%, $pink600 100%",
         // }}
-        weight="bold"
+
       >
        {"Hey, 👋🏽 ."}
-      </Text>
-      <Text
-        h2
-        size={20}
+      </h2>
+      <p
         // css={{
         //   textGradient: "45deg, $blue600 -20%, $red600 100%",
         // }}
-        weight="normal"
+
       >
     {"A passionate Web developer, with a curious mind and a constant learning attitude. I spent most of my life living in Hassan Karnataka, my hometown, and now working in Bengaluru."}
-      </Text>
+      </p>
      
       </Container>
     </>
