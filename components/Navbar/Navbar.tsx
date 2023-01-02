@@ -9,10 +9,10 @@ export const PortFolioNavbar:FC = () => {
     const navbarItems = [
         { key:'home',name:'Home',link:'/'},
         { key:'resume',name:'Resume',link:'https://www.cakeresume.com/s--3MAijQXyxXWDS3JAnvlXBQ--/amogh-telkar'},
-        // { name:'Repository',link:'/repository'},
+        { name:'Repository',link:'/repository'},
         // { name:'Exprience',link:'/experience'},
         // { name:'Education',link:'/education'},
-        // { name:'Contact',link:'/contact'},
+         { name:'Contact',link:'/contact'},
     ]
     return (
         // <Navbar isBordered variant={"sticky"}>
