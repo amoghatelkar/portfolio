@@ -2,7 +2,15 @@ import { Card, Col, Row, Button, Text } from "@nextui-org/react";
 import { useEffect } from "react";
 import { useRouter } from 'next/router'
 
-export const PortFolioCard = ({cardKey,image, name,description,repoUrl}) => {
+interface IPortFolioCard{
+  cardKey:string;
+  image:string;
+  name:string;
+  description:string;
+  repoUrl:string;
+}
+
+export const PortFolioCard = ({cardKey,image, name,description,repoUrl}:IPortFolioCard) => {
 
   const router = useRouter();
 
