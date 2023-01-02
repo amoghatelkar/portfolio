@@ -21,7 +21,7 @@ const Contact: NextPage = () => {
     console.log(process.env.API_URL);
     let config = {
       method: 'POST',
-      url: `${process.env.API_URL}/api/contact`,
+      url: `/api/contact`,
       headers: {
         'Content-Type': 'Application/json'
       },
