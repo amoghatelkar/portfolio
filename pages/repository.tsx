@@ -47,7 +47,7 @@ const Repository: NextPage = () => {
       </Text>  
       {repos.slice(start,end).map((repo) => (
         
-        <div key={repo.id} style={{margin:'2%'}}>
+        <div key={repo.id} style={{margin:'2%'  }}>
           <PortFolioCard cardKey={repo.id} image={"socialpedia.png"} name={repo.name} description={repo.description} repoUrl={repo.html_url}/>
           </div >
       ))}

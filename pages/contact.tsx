@@ -18,10 +18,10 @@ const Contact: NextPage = () => {
     setData({ ...data, [name]: value });
   }
   const onSubmit = async () => {
-    console.log(data);
+    console.log(process.env.API_URL);
     let config = {
       method: 'POST',
-      url: `http://localhost:3000/api/contact`,
+      url: `${process.env.API_URL}/api/contact`,
       headers: {
         'Content-Type': 'Application/json'
       },
