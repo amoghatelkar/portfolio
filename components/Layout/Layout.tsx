@@ -1,9 +1,9 @@
 import { PortFolioNavbar } from "../Navbar/Navbar"
 
-const Layout = ({children}:any) => {
+const Layout = ({children,setMode}:any) => {
     return(
         <>
-            <PortFolioNavbar/>
+            <PortFolioNavbar setMode={setMode}/>
             {children}
         </>
         

@@ -1,59 +1,54 @@
-import { FC } from "react";
-import { Button, Card, Link, Navbar, Radio, Text } from '@nextui-org/react';
+import { FC, useState } from "react";
+import { Button, Link, Navbar, Text, useTheme } from '@nextui-org/react';
 import React from "react";
-import type { NextPage } from 'next'
-export const PortFolioNavbar:FC = () => {
-    const [variant, setVariant] = React.useState("static");
+import { ATLogo } from "../../utils/at";
+import { useRouter } from "next/router";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../store/store";
+import { setActive, setTheme } from "../../store/uiSlice";
+import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 
-    const variants = ["static", "floating", "sticky"];
-    const navbarItems = [
+
+export const PortFolioNavbar:FC<{setMode:any}> = ({setMode}) => {
+
+    const {isDark} = useTheme();
+    const router = useRouter();
+    const dispatch = useDispatch();
+    const { active, theme } = useSelector((state:RootState) => state.ui);
+    const [navbarItems,setNavbarItems] = useState([
         { key:'home',name:'Home',link:'/'},
-        { key:'resume',name:'Resume',link:'https://www.cakeresume.com/s--3MAijQXyxXWDS3JAnvlXBQ--/amogh-telkar'},
-        { name:'Repository',link:'/repository'},
+        { key:'resume',name:'Resume',link:'/resume'},
+        { key:'repository', name:'Repository',link:'/repository'},
         // { name:'Exprience',link:'/experience'},
         // { name:'Education',link:'/education'},
-         { name:'Contact',link:'/contact'},
-    ]
+         { key:'contact', name:'Contact',link:'/contact'},
+    ]);
+
+    const onNavbarClick = (index:number) => {
+        dispatch(setActive(index));
+        router.push(navbarItems[index].link);
+    }
     return (
-        // <Navbar isBordered variant={"sticky"}>
-        //     <Navbar.Brand>
-        //         {/* <AcmeLogo /> */}
-        //         <Text b color="inherit" hideIn="xs">
-        //             AMOGH TELKAR
-        //         </Text>
-        //     </Navbar.Brand>
-        //     <Navbar.Content hideIn="xs">
-        //         <Navbar.Link href="/#">Home</Navbar.Link>
-        //         <Navbar.Link href="/resume">Resume</Navbar.Link>
-        //         <Navbar.Link href="/repository">Repository</Navbar.Link>
-        //         <Navbar.Link href="/experience">Experience</Navbar.Link>
-        //         <Navbar.Link href="/education">Education</Navbar.Link>
-        //         <Navbar.Link href="/contact">Contact</Navbar.Link>
-        //     </Navbar.Content>
-        //     {/* <Navbar.Content>
-        //         <Navbar.Link color="inherit" href="#">
-        //             Login
-        //         </Navbar.Link>
-        //         <Navbar.Item>
-        //             <Button auto flat as={Link} href="#">
-        //                 Sign Up
-        //             </Button>
-        //         </Navbar.Item>
-        //     </Navbar.Content> */}
-        // </Navbar>
-
-        <div style={{width:'100%',display:'flex',position:'relative'}}>
-            <div>
-                <h3 style={{padding:'0 20px'}}>@</h3>
-            </div>
-            <div style={{marginLeft:'auto',padding:'20px'}}>
-                {navbarItems.map(navbarItem => <>
-                    <a key={navbarItem.key} style={{padding:'10px'}} href={navbarItem.link}>{navbarItem.name}</a>
-                </>
-                )}
-            </div>
-        </div>
-        
-
+        <Navbar isBordered={isDark} variant="sticky">
+        <Navbar.Brand>
+          <ATLogo />
+          <Text b color="inherit" hideIn="xs">
+            AMOGH TELKAR
+          </Text>
+        </Navbar.Brand>
+        <Navbar.Content activeColor={"primary"} hideIn="xs" variant={"highlight"}>
+            {navbarItems.map((navbarItem,index) => (
+                <Navbar.Link onClick={() => onNavbarClick(index)} isActive={active === index} key={navbarItem.key} >{navbarItem.name}</Navbar.Link>
+            ))}
+        </Navbar.Content>
+        <Navbar.Content>
+            
+          <Navbar.Item>
+            <Button auto flat as={Link} color={"primary"} onClick={() => theme === 'light' ? dispatch(setTheme('dark')) : dispatch(setTheme('light')) }>
+                {theme === "light" ? <MdOutlineDarkMode/> : <MdOutlineLightMode/> }
+            </Button>
+          </Navbar.Item>
+        </Navbar.Content>
+      </Navbar>
     );
 }

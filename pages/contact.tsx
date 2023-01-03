@@ -50,7 +50,6 @@ const Contact: NextPage = () => {
           display: 'block',
           width: '100%',
           margin: '5px'
-
         }}
         weight="bold"
       >
