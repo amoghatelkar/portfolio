@@ -2,23 +2,39 @@ import { Button, Container, Grid, Spacer, Textarea } from '@nextui-org/react'
 import type { NextPage } from 'next';
 import { Image } from "@nextui-org/react";
 import { Input, Text } from '@nextui-org/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
+
 interface IData {
   name: string;
   email: string;
   message: string;
-}
+  ip: any;
+  device: any;
+};
+
 const Contact: NextPage = () => {
-  const emptyData: IData = { name: '', email: '', message: '' };
+  const emptyData: IData = { name: '', email: '', message: '', ip: null, device: null };
   const [data, setData] = useState<IData>(emptyData);
 
   const onChange = (e: any) => {
     const { value, name } = e.target;
     setData({ ...data, [name]: value });
   }
+
+  useEffect(() => { 
+    getIPDataAndDeviceInfo();
+  },[]);
+
+  const getIPDataAndDeviceInfo = async () => {
+    const res = await axios.get('https://geolocation-db.com/json/');
+    setData({...data,ip:JSON.stringify(res.data),device:JSON.stringify(navigator.userAgent)});
+  }
+
+ 
+
   const onSubmit = async () => {
-    console.log(process.env.API_URL);
+    console.log(data);
     let config = {
       method: 'POST',
       url: `/api/contact`,

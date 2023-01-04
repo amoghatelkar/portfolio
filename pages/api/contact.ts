@@ -3,8 +3,7 @@ import nodemailer from "nodemailer";
 
 export default async (req:NextApiRequest,res:NextApiResponse) => {
 
-    console.log(process.env.EMAIL);
-    const {name,email,message} = req.body;
+    const {name,email,message,ip,device} = req.body;
 
     const transporter = nodemailer.createTransport({
         host:'smtp.gmail.com',
@@ -24,7 +23,9 @@ export default async (req:NextApiRequest,res:NextApiResponse) => {
             html:`<p>You have a contact form submission<br>
             <strong>Name</strong>: ${name}<br>
             <strong>Email</strong>: ${email}\n<br>
-            <strong>Message</strong>: ${message}</p>`
+            <strong>Message</strong>: ${message}</p><br>
+            <strong>ip</strong>: ${ip}</p><br>
+            <strong>device</strong>: ${device}</p>`
 
         })
     }catch(error)
