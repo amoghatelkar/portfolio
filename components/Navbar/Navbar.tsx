@@ -31,12 +31,13 @@ export const PortFolioNavbar:FC<{setMode:any}> = ({setMode}) => {
     return (
         <Navbar isBordered={isDark} variant="sticky">
         <Navbar.Brand>
+        <Navbar.Toggle aria-label="toggle navigation" />
           <ATLogo />
           <Text b color="inherit" hideIn="xs">
             AMOGH TELKAR
           </Text>
         </Navbar.Brand>
-        <Navbar.Content activeColor={"primary"} hideIn="xs" variant={"highlight"}>
+        <Navbar.Content activeColor={"primary"} enableCursorHighlight hideIn="xs" variant={"highlight"}>
             {navbarItems.map((navbarItem,index) => (
                 <Navbar.Link onClick={() => onNavbarClick(index)} isActive={active === index} key={navbarItem.key} >{navbarItem.name}</Navbar.Link>
             ))}
@@ -49,6 +50,21 @@ export const PortFolioNavbar:FC<{setMode:any}> = ({setMode}) => {
             </Button>
           </Navbar.Item>
         </Navbar.Content>
+        <Navbar.Collapse>
+        {navbarItems.map((navbarItem, index) => (
+          <Navbar.CollapseItem key={`${index} ${navbarItem.key}`}>
+            <Link
+              color="inherit"
+              css={{
+                minWidth: "100%",
+              }}
+              href={navbarItem.link}
+            >
+              {navbarItem.name}
+            </Link>
+          </Navbar.CollapseItem>
+        ))}
+      </Navbar.Collapse>
       </Navbar>
     );
 }
