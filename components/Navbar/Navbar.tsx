@@ -37,11 +37,11 @@ export const PortFolioNavbar:FC<{setMode:any}> = ({setMode}) => {
             AMOGH TELKAR
           </Text>
         </Navbar.Brand>
-        <Navbar.Content activeColor={"primary"} enableCursorHighlight hideIn="xs" variant={"highlight"}>
+        {/* <Navbar.Content activeColor={"primary"} enableCursorHighlight hideIn="xs" variant={"highlight"}>
             {navbarItems.map((navbarItem,index) => (
                 <Navbar.Link onClick={() => onNavbarClick(index)} isActive={active === index} key={navbarItem.key} >{navbarItem.name}</Navbar.Link>
             ))}
-        </Navbar.Content>
+        </Navbar.Content> */}
         <Navbar.Content>
             
           <Navbar.Item>
