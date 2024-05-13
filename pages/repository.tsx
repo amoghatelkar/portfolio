@@ -16,7 +16,7 @@ const Repository: NextPage = () => {
   const [start,setStart] = useState(0);
   const [end,setEnd] = useState(4);
   const getRepos = () => {
-    fetch("https://api.github.com/users/amoghtelkar/repos").then((res) => res.json()).then((data) => setRepos(data));
+    fetch("https://api.github.com/users/amoghatelkar/repos").then((res) => res.json()).then((data) => setRepos(data));
   }
 
   useEffect(() => getRepos(), []);

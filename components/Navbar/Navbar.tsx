@@ -10,14 +10,14 @@ import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 
 
 export const PortFolioNavbar:FC<{setMode:any}> = ({setMode}) => {
-
+    
     const {isDark} = useTheme();
     const router = useRouter();
     const dispatch = useDispatch();
     const { active, theme } = useSelector((state:RootState) => state.ui);
     const [navbarItems,setNavbarItems] = useState([
         { key:'home',name:'Home',link:'/'},
-      //  { key:'resume',name:'Resume',link:'/resume'},
+        { key:'resume',name:'Resume',link:'/resume.pdf'},
         { key:'repository', name:'Repository',link:'/repository'},
         // { name:'Exprience',link:'/experience'},
         // { name:'Education',link:'/education'},

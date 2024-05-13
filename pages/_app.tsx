@@ -7,6 +7,8 @@ import { useState } from 'react';
 import { darkTheme, lightTheme } from '../theme';
 import { store } from '../store/store'
 import { Provider } from 'react-redux'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [mode, setMode] = useState('light');
@@ -16,6 +18,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <NextUIProvider theme={mode === 'light' ? lightTheme : darkTheme}>
         <SSRProvider>
           <Layout setMode={setMode}>
+          <ToastContainer />
             <Component {...pageProps} />
           </Layout>
         </SSRProvider>

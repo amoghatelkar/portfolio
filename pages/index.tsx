@@ -6,11 +6,12 @@ import styles from '../styles/Home.module.css'
 import { Card, Container, Row, Text } from "@nextui-org/react";
 
 const Home: NextPage = () => {
+
   return (
     <>
     <Container sm style={{paddingTop:'100px'}}>
       <div style={{textAlign:'center'}}>
-      <img src="amogh.png" width={"150rem"}/>
+      <Image alt={"random image"} src="/amogh.png" width={"150rem"} height={"150rem"} />
       </div>
       
         <Text

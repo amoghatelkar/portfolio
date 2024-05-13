@@ -20,7 +20,8 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.7.1",
     "react-pdf": "^5.7.2",
-    "react-redux": "^8.0.5"
+    "react-redux": "^8.0.5",
+    "react-toastify": "^10.0.5"
   },
   "devDependencies": {
     "@types/node": "18.11.3",
